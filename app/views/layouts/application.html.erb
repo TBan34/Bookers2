@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewort" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,7 +18,7 @@
         <li><%= link_to users_path do %><i class="fas fa-home"></i>Home<% end %></li>
         <li><%= link_to users_path do %><i class="fas fa-users"></i>Users<% end %></li>
         <li><%= link_to books_path do %><i class="fas fa-book-open"></i>Books<% end %></li>
-        <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt">Log out</i><% end %></li>
+        <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fas fa-sign-out-alt"></i>Log out<% end %></li>
       <% else %>
         <li><%= link_to root_path do %><i class="fas fa-home"></i>Home<% end %></li>
         <li><%= link_to about_path do %><i class="fas fa-link"></i>About<% end %></li>
