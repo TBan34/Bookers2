@@ -1,24 +1,28 @@
-<table>
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        <h2>User info</h2>
-        <!--ユーザー画像-->
-        <!--ユーザー名-->
-        <!--自己紹介文-->
-        <!--プロフィール編集（<i class="fas fa-user-cog"></i>）-->
-        <h2>New book</h2>
-        <%= form_with model: @book, url: '/books', method: :post do |f| %>
-          <h5>Title</h5>
-          <%= f.text_field :title %>
-          <h5>Opinion</h5>
-          <%= f.text_field :body %>
-          <%= f.submit 'Create Book' %>
-      </div>
-      <div class="col-8">
-        <h2>Books</h2>
-        <!--投稿一覧-->
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-3" style="background-color:orange;">
+      <h2>User info</h2>
+        <%= image_tag "default-image", size:"100x100" %>
+      <table>
+        <tr>
+          <th>name</th><th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+        </tr>
+      </table>
+      <h2>New book</h2>
+      <%= form_with model: @book do |f| %>
+      <p>Title</p>
+      <%= f.text_field :title %>
+      <p>Opinion</p>
+      <%= f.text_field :body %>
+      <%= f.submit "Create Book", class: "btn btn-success" %>
+      <% end %>
+    </div>
+
+    <div class="col-9">
+      <h2>Books</h2>
     </div>
   </div>
-</table>
+</div>

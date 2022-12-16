@@ -6,12 +6,8 @@ class BooksController < ApplicationController
 
   def create
     @book=Book.new(book_params)
-    @book.user_id=current_user.id
-    if @book.save
-      redirect_to books_path[:id]
-    else
-      render :index
-    end
+    book.save
+    redirect_to "/top"
   end
 
   def index
@@ -41,7 +37,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :id)
+    params.require(:book).permit(:title, :body, :user_id)
   end
 
 end
