@@ -8,9 +8,18 @@
           <th>name</th><th><%= @user.name %></th>
         </tr>
         <tr>
-          <th>introduction</th>
+          <th>introduction</th><th><%= @user.introduction %></th>
         </tr>
       </table>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <%= link_to edit_user_path(@user), class: "nav-link btn btn-outline-secondary btn-block" do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </li>
+      </ul>
+
       <h2>New book</h2>
       <%= form_with model: @book, url: '/books', method: :post do |f| %>
       <p>Title</p>
