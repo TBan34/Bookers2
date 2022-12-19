@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+        <%= image_tag @user.get_profile_image(90, 100) %>
+      <table>
+        <tr>
+          <th>name</th><th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th><th><%= @user.introduction %></th>
+        </tr>
+      </table>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <% if @user == current_user %>
+            <%= link_to edit_user_path(@user), class: "nav-link btn btn-outline-secondary btn-block" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+
+      <h2>New book</h2>
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
+      <p>Title</p>
+      <%= f.text_field :title %>
+      <p>Opinion</p>
+      <%= f.text_field :body %>
+      <%= f.submit "Create Book", class: "btn btn-success" %>
+      <% end %>
+    </div>
+
+    <div class="col-9">
+      <h2>Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>image</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= @users.each do |user| %>
+          <tr>
+            <td><%= image_tag @user.get_profile_image(72, 80) %></td>
+            <td><%= @user.name %></td>
+            <td><%= link_to @user do %>Show<% end %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
