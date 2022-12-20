@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def index
     @users=User.all
     @book=Book.new
-    @user=current_user
   end
 
   def show
@@ -18,6 +17,7 @@ class UsersController < ApplicationController
   def update
     @user=User.find(params[:id])
     @user.update(user_params)
+    flash[:notice]="You have updated user successfully."
     redirect_to current_user
   end
 
