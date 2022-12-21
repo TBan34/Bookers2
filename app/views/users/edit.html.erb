@@ -8,15 +8,21 @@
 <% end %>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <h2>User info</h2>
+  <div class="row mx-auto">
+    <h2 class="col-12">User info</h2>
       <%= form_with model: @user do |f| %>
         <label for="inputName">Name</label>
+        <div class="form-group">
           <%= f.text_field :name, id:"inputName" %>
+        </div>
         <label for="inputImage">Image</label>
+        <div class="form-group">
           <%= f.file_field :profile_image, accept:"image/*" %>
+        </div>
         <label for="inputIntroduction">Introduction</label>
+        <div class="form-group">
           <%= f.text_area :introduction, id:"inputIntroduction"%>
+        </div>
         <%= f.submit "Update User", class: "btn btn-secondary btn-sm" %>
       <% end %>
     </div>

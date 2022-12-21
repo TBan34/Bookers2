@@ -1,0 +1,29 @@
+<!--users/showとbooks/showの部分テンプレート（User info）-->
+
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>User info</h2>
+        <%= image_tag user.get_profile_image(90, 100) %>
+      <table class="table">
+        <tr>
+          <th>name</th><th><%= user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th><th><%= user.introduction %></th>
+        </tr>
+      </table>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <% if user == current_user %>
+            <%= link_to edit_user_path(user), class: "nav-link btn btn-outline-secondary btn-block btn-sm" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>

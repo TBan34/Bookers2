@@ -1,38 +1,12 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <h2>User info</h2>
-        <%= image_tag @user.get_profile_image(90, 100) %>
-      <table>
-        <tr>
-          <th>name</th><th><%= @user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th><th><%= @user.introduction %></th>
-        </tr>
-      </table>
-
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <% if @user == current_user %>
-            <%= link_to edit_user_path(@user), class: "nav-link btn btn-outline-secondary btn-block" do %>
-              <i class="fas fa-user-cog"></i>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
+    <%= render 'user_info', user: @user, book: @book, books: @books %>
 
       <h2>New book</h2>
       <%= form_with model: @book, url: '/books', method: :post do |f| %>
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Opinion</p>
-      <%= f.text_field :body %>
-      <%= f.submit "Create Book", class: "btn btn-success" %>
+      <%= f.text_area :body %>
+      <%= f.submit "Create Book", class: "btn btn-success btn-sm" %>
       <% end %>
     </div>
 

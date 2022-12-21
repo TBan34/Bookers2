@@ -12,19 +12,19 @@
     <div class="col-3">
       <h2>User info</h2>
         <%= image_tag current_user.get_profile_image(90, 100) %>
-      <table>
-        <tr>
-          <th>name</th><th><%= current_user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th><th><%= current_user.introduction %></th>
-        </tr>
-      </table>
+        <table class="table">
+          <tr>
+            <th>name</th><th><%= current_user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th><th><%= current_user.introduction %></th>
+          </tr>
+        </table>
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
           <% if current_user %>
-            <%= link_to edit_user_path(current_user), class: "nav-link btn btn-outline-secondary btn-block" do %>
+            <%= link_to edit_user_path(current_user), class: "nav-link btn btn-outline-secondary btn-block btn-sm" do %>
               <i class="fas fa-user-cog"></i>
             <% end %>
           <% end %>
@@ -36,19 +36,21 @@
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Opinion</p>
-      <%= f.text_field :body %>
-      <%= f.submit "Create Book", class: "btn btn-success" %>
+      <%= f.text_area :body %>
+      <div>
+        <%= f.submit "Create Book", class: "btn btn-success btn-sm" %>
+      </div>
       <% end %>
     </div>
 
     <div class="col-9">
       <h2>Books</h2>
-      <table>
+      <table class="table">
         <thead>
           <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
           </tr>
         </thead>
         <tbody>
