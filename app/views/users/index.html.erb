@@ -1,30 +1,4 @@
-<div>
-  <%= flash[:notice] %>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-3">
-      <h2>User info</h2>
-        <%= image_tag current_user.get_profile_image(90, 100) %>
-      <table class="table">
-        <tr>
-          <th>name</th><th><%= current_user.name %></th>
-        </tr>
-        <tr>
-          <th>introduction</th><th><%= current_user.introduction %></th>
-        </tr>
-      </table>
-
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <% if current_user %>
-            <%= link_to edit_user_path(current_user), class: "nav-link btn btn-outline-secondary btn-block btn-sm" do %>
-              <i class="fas fa-user-cog"></i>
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
+    <%= render 'user_info', user: @user %>
 
       <h2>New book</h2>
       <%= form_with model: @book, url: '/books', method: :post do |f| %>
@@ -36,7 +10,7 @@
       <% end %>
     </div>
 
-    <div class="col-9">
+    <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
       <table class="table">
         <thead>

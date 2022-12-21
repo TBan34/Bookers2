@@ -1,4 +1,4 @@
-      <%= render 'users/user_info', user: @user, book: @book, books: @books %>
+      <%= render 'users/user_info', user: @user %>
 
       <h2>New book</h2>
       <%= form_with model: @book_new, url: '/books', method: :post do |f| %>
@@ -10,7 +10,7 @@
       <% end %>
     </div>
 
-    <div class="col-9">
+    <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table>
         <tr>
